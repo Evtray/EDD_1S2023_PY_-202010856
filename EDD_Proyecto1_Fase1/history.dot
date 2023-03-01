@@ -1,0 +1,10 @@
+digraph G {
+node [shape=record];
+node4 [label="Se registró en el sistema 2021-06-01 12:00:00"];
+node3 [label="Se registró en el sistema 2021-06-01 12:00:00"];
+node2 [label="Se registró en el sistema 2021-06-01 12:00:00"];
+node1 [label="Se registró en el sistema 2021-05-01 12:00:00"];
+node4 -> node3;
+node3 -> node2;
+node2 -> node1;
+}

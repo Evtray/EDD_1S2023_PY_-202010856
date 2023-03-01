@@ -1,0 +1,11 @@
+digraph {
+rankdir=LR;
+node [style=filled];
+  20201234 [label="20201234\nJuan Perez" shape=box];
+  20501234 [label="20501234\nJuan Perez" shape=box];
+  20601234 [label="20601234\nJuan Perez" shape=box];
+  20701234 [label="20701234\nJuan Perez" shape=box];
+  20201234 -> 20501234;
+  20501234 -> 20601234;
+  20601234 -> 20701234;
+}
