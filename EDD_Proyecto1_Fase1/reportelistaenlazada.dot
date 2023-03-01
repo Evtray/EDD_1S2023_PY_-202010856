@@ -1,0 +1,17 @@
+digraph {
+rankdir=LR;
+node [style=filled];
+  null1 [label="Null\n" shape=box];
+  null2 [label="Null\n" shape=box];
+  201403877 [label="201403877\nEbany Larios" shape=box];
+  201709018 [label="201709018\nCristian Suy" shape=box];
+  201780044 [label="201780044\nLeonardo Martinez" shape=box];
+  null1 -> 201403877;
+  201403877 -> null1;
+  201403877 -> 201709018;
+  201709018 -> 201403877;
+  201709018 -> 201780044;
+  201780044 -> 201709018;
+  201780044 -> null2;
+  null2 -> 201780044;
+}

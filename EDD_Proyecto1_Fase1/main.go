@@ -50,12 +50,12 @@ func login() {
 		printMsg(search.Carnet + "hola")
 		if search.Carnet != "" {
 			data.UserType = 2
-			data.Student = search
 			auth = true
 			now := time.Now().Format("2006-01-02 15:04:05")
 			sizeHistory := search.History.Size()
 			history := models.History{Name: "Se inició sesión en: ", Date: now, Id: fmt.Sprintf("%d-%s", sizeHistory+1, search.Carnet)}
 			search.History.Add(history)
+			data.Student = search
 		}
 	}
 
@@ -84,9 +84,7 @@ func sesion() {
 
 	if option == "1" {
 		login()
-	}
-
-	if option == "2" {
+	} else if option == "2" {
 		printLine()
 		printMsg("Gracias por usar" + data.Title)
 		printLine()

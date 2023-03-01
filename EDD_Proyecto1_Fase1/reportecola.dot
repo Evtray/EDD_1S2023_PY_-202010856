@@ -1,0 +1,9 @@
+digraph {
+rankdir=LR;
+node [style=filled];
+  201780044 [label="201780044\nLeonardo Martinez" shape=box];
+  201709018 [label="201709018\nCristian Suy" shape=box];
+  201403877 [label="201403877\nEbany Larios" shape=box];
+  201780044 -> 201709018;
+  201709018 -> 201403877;
+}

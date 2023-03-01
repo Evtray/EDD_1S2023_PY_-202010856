@@ -66,7 +66,7 @@ func (l *LinkedListHistory) DotHistory() {
 		return
 	}
 	defer file.Close()
-	file.WriteString("digraph G {\n")
+	file.WriteString("digraph {\n")
 	file.WriteString("rankdir=LR;\n")
 	file.WriteString("node [shape=record];\n")
 	current := l.Head
@@ -77,7 +77,7 @@ func (l *LinkedListHistory) DotHistory() {
 	current = l.Head
 	for current != nil {
 		if current.Next != nil {
-			file.WriteString("node" + current.History.Id + " -> node" + current.Next.History.Id + ";\n")
+			file.WriteString("node" + current.History.Id + " __ node" + current.Next.History.Id + ";\n")
 		}
 		current = current.Next
 	}

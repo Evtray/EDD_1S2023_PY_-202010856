@@ -62,7 +62,8 @@ func showPendingStudents() {
 			current := listStudents.Head
 			for current != nil {
 				now := time.Now().Format("2006-01-02 15:04:05")
-				data.Admin.History.Add(models.History{Name: "Se aceptó al estudiante " + current.Student.Name + " con carnet " + current.Student.Carnet, Date: now})
+				sizeHistory := data.Admin.History.Size()
+				data.Admin.History.Add(models.History{Name: "Se aceptó al estudiante " + current.Student.Name + " con carnet " + current.Student.Carnet, Date: now, Id: fmt.Sprintf("%d%s", sizeHistory+1, "admin")})
 				data.ListAcceptedStudents.Add(current.Student)
 				current = current.Next
 			}

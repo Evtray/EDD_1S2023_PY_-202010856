@@ -194,6 +194,7 @@ func (l *LinkedList) SortByCarnet() {
 func (l *LinkedList) DotSimple() {
 	head := l.Head
 	if head == nil {
+		fmt.Println("Cola vacía")
 		return
 	}
 	// Creamos un archivo para guardar el código Graphviz

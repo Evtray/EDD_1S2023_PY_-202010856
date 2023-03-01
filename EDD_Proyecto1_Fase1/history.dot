@@ -1,10 +1,9 @@
-digraph G {
+digraph {
+
 node [shape=record];
-node4 [label="Se registró en el sistema 2021-06-01 12:00:00"];
-node3 [label="Se registró en el sistema 2021-06-01 12:00:00"];
-node2 [label="Se registró en el sistema 2021-06-01 12:00:00"];
-node1 [label="Se registró en el sistema 2021-05-01 12:00:00"];
-node4 -> node3;
-node3 -> node2;
-node2 -> node1;
+node3admin [label="Se aceptó al estudiante Ebany Larios con carnet 201403877 2023-02-28 22:33:38"];
+node2admin [label="Se aceptó al estudiante Cristian Suy con carnet 201709018 2023-02-28 22:33:38"];
+node1admin [label="Se aceptó al estudiante Leonardo Martinez con carnet 201780044 2023-02-28 22:33:38"];
+node3admin __ node2admin;
+node2admin __ node1admin;
 }
