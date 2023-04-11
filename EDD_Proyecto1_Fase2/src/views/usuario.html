@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz.js"></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="mx-auto max-w-4xl py-4">
+        <div class="flex justify-between items-center gap-x-2">
+            <h1 id="welcome-user" class="text-xl font-semibold">Usuario</h1>
+
+            <div class="relative">
+                <input id="input-cargamasiva" type="file" class="opacity-0 absolute ursor-pointer" name="archivo">
+                <div
+                    class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+                </div>
+            </div>
+        </div>
+
+        <div class="my-4">
+            <input type="text" id="search"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Buscar...">
+
+            <div class="my-2 shadow appearance-none border rounded w-full p-4">
+
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/models/estudiante.js"></script>
+    <script src="../js/models/estructura.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/usuario.js"></script>
+</body>
+
+</html>

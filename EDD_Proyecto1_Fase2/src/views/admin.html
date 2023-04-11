@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz.js"></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="mx-auto max-w-4xl py-4">
+        <div class="flex justify-end items-center gap-x-2">
+            <button
+                class="hidden py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600">
+                <i class="fas fa-user-graduate"></i> Mostrar Alumnos
+            </button>
+            <button onclick="generarAvlDot()"
+                class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600">
+                <i class="fas fa-tree"></i> Árbol estudiantes
+            </button>
+
+            <div class="relative">
+                <input id="input-cargamasiva" type="file" class="opacity-0 absolute ursor-pointer" name="archivo">
+                <div
+                    class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-cloud-upload-alt"></i> Cargar Masiva
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center gap-x-2 inline-block relative">
+            <span class="text-sm font-semibold">
+                Ordernar por:
+            </span>
+            <select id="select-ordenar"
+                class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600">
+                <option>In-order</option>
+                <option>Post-order</option>
+                <option>Pre-order</option>
+            </select>
+        </div>
+
+        <div class="my-4 overflow-auto  shadow-sm rounded-lg " style="max-height: 500px;">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="text-left">
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Nombre</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Carnet</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-estudiantes" class="text-left">
+                </tbody>
+            </table>
+        </div>
+        <div class="w-full my-4 overflow-auto" id="graph"  style="max-height: 500px;">
+        </div>
+    </div>
+    <script src="../js/models/estudiante.js"></script>
+    <script src="../js/models/estructura.js"></script>
+    <script src="../js/models/matriz.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
