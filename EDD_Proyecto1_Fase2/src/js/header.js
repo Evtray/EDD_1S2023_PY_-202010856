@@ -57,9 +57,9 @@ if (user != null) {
 
 document.getElementById("login").onclick = function () {
   if (user == null) {
-    window.location.href = "/EDD_Proyecto1_Fase2/src/views/login.html";
+    window.location.href = "/EDD_1S2023_PY_-202010856/EDD_Proyecto1_Fase2/src/views/login.html";
   } else {
     localStorage.removeItem("estudiante");
-    window.location.href = "/EDD_Proyecto1_Fase2";
+    window.location.href = "/EDD_1S2023_PY_-202010856/EDD_Proyecto1_Fase2";
   }
 };
