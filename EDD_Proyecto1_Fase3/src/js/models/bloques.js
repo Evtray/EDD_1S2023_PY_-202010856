@@ -40,8 +40,8 @@ class Bloque {
       const nuevoBloque = new nodoBloque(
         this.bloques_creados,
         fecha,
-        emisor,
-        receptor,
+        emisor.toString(),
+        receptor.toString(),
         mensajeEncriptado.cifradoBase64,
         "0000",
         hash,
@@ -61,8 +61,8 @@ class Bloque {
       const nuevoBloque = new nodoBloque(
         this.bloques_creados,
         fecha,
-        emisor,
-        receptor,
+        emisor.toString(),
+        receptor.toString(),
         mensajeEncriptado.cifradoBase64,
         aux.valor["hash"],
         hash,
@@ -79,29 +79,33 @@ class Bloque {
     let aux = this.inicio;
     let contenedor = document.getElementById("contenedor-chat");
     contenedor.innerHTML = "";
+    console.log(carnet, receptor);
     while (aux) {
-      if (
-        aux.valor["transmitter"].toString === carnet.toString ||
-        aux.valor["receiver"].toString === receptor.toString ||
-        aux.valor["receiver"].toString === carnet.toString ||
-        aux.valor["transmitter"].toString === receptor.toString
-      ) {
-        let mensajeDesencriptado = await desencriptacion(
-          aux.valor["message"],
-          aux.valor["view"],
-          aux.valor["algoritmo"]
-        );
-        if (aux.valor["transmitter"] === carnet) {
+      if (aux.valor["transmitter"].toString()  == carnet.toString() ) {
+        if (aux.valor["receiver"].toString()  == receptor.toString() ) {
+          let mensajeDesencriptado = await desencriptacion(
+            aux.valor["message"],
+            aux.valor["view"],
+            aux.valor["algoritmo"]
+          );
+          console.log(carnet, receptor, aux.valor);
           contenedor.appendChild(
             this.preparaBloqueEmisor(mensajeDesencriptado)
           );
-        } else {
+        }
+      } else if (aux.valor["receiver"].toString() == carnet.toString()) {
+        if (aux.valor["transmitter"].toString() == receptor.toString()) {
+          let mensajeDesencriptado = await desencriptacion(
+            aux.valor["message"],
+            aux.valor["view"],
+            aux.valor["algoritmo"]
+          );
+          console.log(aux.valor);
           contenedor.appendChild(
             this.preparaBloqueReceptor(mensajeDesencriptado)
           );
         }
       }
-
       aux = aux.siguiente;
     }
   }
@@ -113,12 +117,25 @@ class Bloque {
     contenedor.innerHTML = "";
     while (aux) {
       if (
-        aux.valor["transmitter"].toString === carnet.toString ||
-        aux.valor["receiver"].toString === carnet.toString
+        aux.valor["transmitter"].toString()  == carnet.toString()  ||
+        aux.valor["receiver"].toString()  == carnet.toString() 
       ) {
-        let chat = chats.find((chat) => chat.receiver == aux.valor["receiver"]);
-        if (!chat) {
-          chats.push({ receiver: aux.valor["receiver"] });
+        let existe = false;
+        let receiver = null;
+        if (aux.valor["transmitter"] == carnet) {
+          receiver = aux.valor["receiver"];
+        } else {
+          receiver = aux.valor["transmitter"];
+        }
+
+        for (let x = 0; x < chats.length; x++) {
+          if (chats[x].receiver === receiver) {
+            existe = true;
+          }
+        }
+
+        if (!existe) {
+          chats.push({ receiver: receiver });
         }
       }
       aux = aux.siguiente;
@@ -130,7 +147,7 @@ class Bloque {
       let span = document.createElement("span");
       span.setAttribute("class", "text-sm");
       let i = document.createElement("i");
-      i.setAttribute("class", "fas fa-user");
+      i.setAttribute("class", "fas fa-user mr-2");
       let span2 = document.createElement("span");
       span2.setAttribute("id", "pre-usuario-chat" + chats[x].receiver);
       span2.innerHTML = chats[x].receiver;
@@ -194,15 +211,30 @@ class Bloque {
   }
 
   grafica() {
-    let cadena = "digraph { rankdir=TB; node [shape=square];";
+    let cadena = "digraph { node [shape=record];";
     let aux = this.inicio;
     while (aux) {
-      cadena += aux.valor["hash"] + '[label="TimeStamp = ' + aux.valor['timestamp'] +"\n"+ aux.valor['transmitter']+"\n"+ aux.valor['receiver'] +"\n"+ aux.valor['previoushash'] + '"];';
+      cadena +=
+        aux.valor["index"] +
+        '[label="TimeStamp = ' +
+        aux.valor["timestamp"] +
+        "\\n Emisor = " +
+       aux.valor["transmitter"] +
+        "\\n Receptor = " +
+        aux.valor["receiver"] +
+        "\\n Mensaje = " +
+        aux.valor["message"] +
+        "\\n Previou Hash = " +
+        aux.valor["previoushash"] +
+        "\\n Hash = " +
+        aux.valor["hash"] +
+        '"];';
       aux = aux.siguiente;
     }
     aux = this.inicio;
     while (aux.siguiente) {
-      cadena += aux.valor["hash"] + " -> " + aux.siguiente.valor["hash"] + ";";
+      console.log(aux.valor["hash"], aux.siguiente.valor["hash"]);
+      cadena += aux.valor["index"] + " -> " + aux.siguiente.valor["index"] + ";";
       aux = aux.siguiente;
     }
     cadena += "}";

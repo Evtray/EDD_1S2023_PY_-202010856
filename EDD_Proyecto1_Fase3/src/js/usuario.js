@@ -15,6 +15,7 @@ if (tabla) {
 }
 
 var usuario = JSON.parse(localStorage.getItem("estudiante"));
+console.log(usuario, "usuario");
 
 if (usuario.grafo !== undefined && usuario.grafo !== null) {
   if (usuario.grafo.primero !== null) {
@@ -110,6 +111,7 @@ function guardarUsuario() {
   usuario.grafo = grafoDirigido;
   usuario = eliminarReferenciasCirculares(usuario);
   localStorage.setItem("estudiante", JSON.stringify(usuario));
+  console.log(usuario, "guadar");
   tablaHash.actualizarUsuario(usuario.carnet, usuario);
   localStorage.setItem("tabla", JSON.stringify(tablaHash));
   localStorage.setItem("compartidos", JSON.stringify(compartidos));

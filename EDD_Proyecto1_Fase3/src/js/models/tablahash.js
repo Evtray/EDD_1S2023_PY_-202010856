@@ -110,7 +110,7 @@ class TablaHash {
           this.tabla[indice].carnet == carnet
         ) {
           if (this.tabla[indice].pass_en == pass_en) {
-            return this.tabla[indice];
+              this.tabla[indice];
           } else {
             return null;
           }

@@ -19,7 +19,6 @@ async function login() {
   } else {
     let pass_en = await tablaHash.sha256(password);
     let estudiante = tablaHash.busquedaUsuario(carnet, pass_en);
-
     if (estudiante) {
       localStorage.setItem("estudiante", JSON.stringify(estudiante));
       window.location.href = "../views/usuario.html";
