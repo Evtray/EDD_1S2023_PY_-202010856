@@ -192,4 +192,20 @@ class Bloque {
       .catch((error) => console.log(error));
     return cadenaFinal;
   }
+
+  grafica() {
+    let cadena = "digraph { rankdir=TB; node [shape=square];";
+    let aux = this.inicio;
+    while (aux) {
+      cadena += aux.valor["hash"] + '[label="TimeStamp = ' + aux.valor['timestamp'] +"\n"+ aux.valor['transmitter']+"\n"+ aux.valor['receiver'] +"\n"+ aux.valor['previoushash'] + '"];';
+      aux = aux.siguiente;
+    }
+    aux = this.inicio;
+    while (aux.siguiente) {
+      cadena += aux.valor["hash"] + " -> " + aux.siguiente.valor["hash"] + ";";
+      aux = aux.siguiente;
+    }
+    cadena += "}";
+    return cadena;
+  }
 }

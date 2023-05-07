@@ -107,6 +107,11 @@ const btnReporte = document.getElementById("reporte");
 btnReporte.addEventListener("click", reporte);
 
 function reporte() {
+  let url = "https://quickchart.io/graphviz?graph=";
+  let body = bloque.grafica();
+  document.getElementById("graph-chat").src = url + body;
+  console.log(url + body);
+  
   bloque_actual = bloque.inicio;
   if (bloque_actual != null) {
     let cadena = "Index: " + bloque_actual.valor["index"];
