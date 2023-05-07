@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz.js"></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="mx-auto max-w-4xl py-4">
+        <div class="flex justify-between items-center gap-x-2">
+            <h1 id="welcome-user" class="text-xl font-semibold">Usuario</h1>
+
+            <div class="relative">
+                <input id="input-archivo" type="file" accept=".pdf,.png,.txt,.jpg"
+                    class="opacity-0 absolute ursor-pointer" name="archivo">
+                <div
+                    class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+                </div>
+            </div>
+        </div>
+
+        <div class="my-4 flex gap-x-2">
+            <div class="flex gap-x-1 w-1/2">
+                <input type="text" id="input-buscar" value="/"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Buscar...">
+                <button id="btn-buscar"
+                    class="py-1 px-4 text-base font-semibold shadow border rounded-md focus:outline-none text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="flex gap-x-1 w-1/2">
+                <input type="text" id="input-carpeta"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Carpeta">
+                <button id="btn-carpeta"
+                    class="py-1 px-4 text-base font-semibold shadow border rounded-md focus:outline-none text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="my-4 flex gap-x-2 justify-end">
+            <div class="flex gap-x-1 w-1/2">
+                <input type="text" id="input-archivo-renombrar"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Cargar archivo">
+                <button id="btn-archivo"
+                    class="py-1 px-4 text-base font-semibold shadow border rounded-md focus:outline-none text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-file"></i>
+                </button>
+            </div>
+            <div class="flex gap-x-1 w-1/2">
+                <input type="text" id="input-permiso"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Dar permiso">
+                <button id="btn-permiso"
+                    class="py-1 px-4 text-base font-semibold shadow border rounded-md focus:outline-none text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-user-check"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="shadow appearance-none border rounded w-full p-4 text-gray-700 my-4">
+            <div class="flex w-full gap-2 flex-wrap" id="contenedor-archivos">
+                <div class="text-gray-700 font-normal p-2 text-xs">
+                    <h3>No hay archivos</h3>
+                </div>
+            </div>
+        </div>
+        <div class="shadow appearance-none border rounded w-full p-4 text-gray-700 my-4">
+            <div id="file-view"></div>
+        </div>
+        <div class="my-4">
+            <h1 class="text-xl font-semibold">Archivos compartidos</h1>
+        </div>
+        <div class="shadow appearance-none border rounded w-full p-4 text-gray-700 my-4">
+            <div class="flex w-full gap-2 flex-wrap" id="contenedor-archivos-comp">
+                <div class="text-gray-700 font-normal p-2 text-sm">
+                    <h3>No hay archivos compartidos</h3>
+                </div>
+            </div>
+        </div>
+        <div class="shadow appearance-none border rounded w-full p-4 text-gray-700 my-4">
+            <div id="file-view-comp"></div>
+        </div>
+        <div class="my-4">
+            <h1 class="text-xl font-semibold">Reporte Carpetas </h1>
+        </div>
+        <div class="w-full my-4 overflow-auto" style="max-height: 500px;">
+            <img class="materialboxed center " id="graph" src="">
+
+        </div>
+
+    </div>
+    <script src="../js/models/grafo.js"></script>
+    <script src="../js/models/matriz.js"></script>
+    <script src="../js/models/permiso.js"></script>
+    <script src="../js/models/tablahash.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/usuario.js"></script>
+</body>
+
+</html>

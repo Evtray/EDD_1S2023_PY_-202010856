@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2afef9cfdb.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz.js"></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="mx-auto max-w-4xl py-4">
+        <div class="flex justify-end items-center gap-x-2">
+            <div class="relative">
+                <input id="input-cargamasiva" type="file" class="opacity-0 absolute ursor-pointer" name="archivo">
+                <div
+                    class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer">
+                    <i class="fas fa-cloud-upload-alt"></i> Cargar Masiva
+                </div>
+            </div>
+        </div>
+        <h1 class="text-xl font-semibold">Estudiantes</h1>
+
+        <div class="my-4 overflow-auto  shadow-sm rounded-lg">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="text-left">
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Carnet</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Usuario</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-estudiantes" class="text-left">
+                </tbody>
+            </table>
+        </div>
+
+        <h1 class="text-xl font-semibold">Permisos</h1>
+        <div class="my-4 overflow-auto  shadow-sm rounded-lg">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="text-left">
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Propietario</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Destino</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Ubicación</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Archivo</th>
+                        <th class="px-4 py-2 bg-gray-100 font-bold text-gray-600">Permisos</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-compartidos" class="text-left">
+                </tbody>
+            </table>
+        </div>
+        <div class="w-full my-4 overflow-auto" id="graph" style="max-height: 500px;">
+        </div>
+
+        <h1 class="text-xl font-semibold">Reporte de blockchain</h1>
+        <div class="my-4">
+            <button
+                class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer"
+                type="button" id="reporte">Mostrar Bloques</button>
+        </div>
+        <div class="my-4">
+            <textarea readonly="readonly" rows="7" type="text"
+                class="w-full outline-none focus:outline-none border border-gray-300 rounded p-2"
+                id="reporte-bloques"></textarea>
+        </div>
+        <div class="mb-3">
+            <button
+                class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer"
+                type="button" id="anterior-bloque"><i class="fas fa-angle-left"></i> Bloque Anterior</button>
+            <button
+                class="py-1 px-4 text-base font-semibold rounded-md focus:outline-none border border-gray-300 text-sm text-gray-600 cursor-pointer"
+                type="button" id="siguiente-bloque">Bloque Siguiente <i class="fas fa-angle-right"></i></button>
+        </div>
+        <div class="mb-3">
+            <span class="input-group-text">Mensaje Desencriptado</span>
+            <textarea readonly="readonly" rows="7" type="text"
+                class="w-full outline-none focus:outline-none border border-gray-300 rounded p-2"
+                id="reporte-mensajes"></textarea>
+        </div>
+    </div>
+    <script src="../js/models/tablahash.js"></script>
+    <script src="../js/models/grafo.js"></script>
+    <script src="../js/models/bloques.js"></script>
+    <script src="../js/models/encriptacionAES.js"></script>
+    <script src="../js/models/matriz.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
