@@ -9,7 +9,7 @@ if (tabla) {
 async function login() {
   let carnet = document.getElementById("carnet").value;
   let password = document.getElementById("password").value;
-  
+
   if (carnet.toLowerCase() == "admin" && password.toLowerCase() == "admin") {
     localStorage.setItem(
       "estudiante",
@@ -23,7 +23,8 @@ async function login() {
       localStorage.setItem("estudiante", JSON.stringify(estudiante));
       window.location.href = "../views/usuario.html";
     } else {
-      alert("Usuario o contraseña incorrecta");
+      console.log(estudiante);
+      alert("Usuario o contraseña incorrecta", estudiante);
     }
   }
 }

@@ -110,7 +110,7 @@ class TablaHash {
           this.tabla[indice].carnet == carnet
         ) {
           if (this.tabla[indice].pass_en == pass_en) {
-              this.tabla[indice];
+            return this.tabla[indice];
           } else {
             return null;
           }
@@ -165,7 +165,6 @@ class TablaHash {
     }
   }
   genera_tabla() {
-
     var tblBody = document.getElementById("tabla-estudiantes");
 
     for (var i = 0; i < this.capacidad; i++) {

@@ -1,4 +1,4 @@
-# Manual Técnico - Fase 1
+# Manual Técnico - Fase 3
 
 Universidad de San Carlos de Guatemala
 Facultad de Ingeniería
@@ -12,8 +12,6 @@ Estructuras de Datos
 
 _General_
 GoDrive es una aplicación web diseñada para almacenar pequeños archivos de forma segura y fácil. Con GoDrive, los usuarios pueden cargar y acceder a sus archivos desde cualquier lugar con conexión a Internet.
-
--
 
 # INFORMACIÓN DEL SISTEMA
 
@@ -71,6 +69,6 @@ crea un nuevo nodo para el grafo con un nombre y un tipo. Cada nodo tiene una ma
 
 - MostrarBloques:
   se utiliza para mostrar los mensajes en la ventana de chat. Toma el carné y el receptor como entrada e itera sobre la lista enlazada para encontrar los mensajes enviados entre el carné y el receptor.
-  
+
 - BuscarBloques:
   se utiliza para mostrar la lista de usuarios que han intercambiado mensajes con el usuario cuyo carné se da como entrada. Recorre la lista vinculada para encontrar a los usuarios que han intercambiado mensajes con el usuario actual y muestra sus nombres en una lista.
